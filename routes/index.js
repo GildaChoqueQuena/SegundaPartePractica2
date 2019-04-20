@@ -8,9 +8,6 @@ router.get('/', function(req, res, next) {
 });
 router.post('/user',async(req,res,next) =>{
   var params = req.body;
-  /*var password = req.body.password;
-  var sha1 = require('sha1');
-   sha1("encriptado");*/
   params["registerDate"]= new Date();
   var user = new USER (params);
   user.save().then(()=>{
@@ -27,7 +24,7 @@ router.put('/user',async(req,res,next) =>{
   var params = req.body;
   var id=req.query.id;
   if(id==null){
-    res.status(300).json({msn:"parámetros incorrectos: especique el ususario que desea actualizar"});
+    res.status(300).json({msn:"parámetros incorrectos: especifique el ususario que desea actualizar"});
     return;
   }
   params["updateDate"] = new Date();
